@@ -1,16 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+import MoviList from "./cine/MoviList";
+import Footer from "./component/Footer";
+import Header from "./component/Header";
+import Sidebar from "./component/Sidebar";
+import { MovieContext } from "./context";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [cartData, setCartData] = useState([]);
 
   return (
     <>
-    <h1 className='text-red-700 text-3xl text-center'>Hello</h1>
+      <MovieContext.Provider value={{ cartData, setCartData }}>
+        <Header />
+        <main>
+          <div className="container grid lg:grid-cols-[218px_1fr] gap-[3.5rem]">
+            <Sidebar />
+            <MoviList />
+          </div>
+        </main>
+        <Footer />
+      </MovieContext.Provider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
