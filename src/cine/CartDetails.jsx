@@ -3,6 +3,7 @@ import Delete from "../assets/delete.svg";
 import Checkout from "../assets/icons/checkout.svg";
 import { MovieContext } from "../context";
 import { getImgUrl } from "../utils/cine-utility";
+import { toast } from "react-toastify";
 
 function CartDetails({ onClose }) {
   const { cartData, setCartData } = useContext(MovieContext);
@@ -13,6 +14,7 @@ function CartDetails({ onClose }) {
       return item.id !== itemId;
     });
     setCartData([...filteredItem]);
+    toast.success(`Removed the item from the cart`)
   };
 
   return (
