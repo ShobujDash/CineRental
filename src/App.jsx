@@ -15,7 +15,7 @@ function App() {
       <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
         <MovieContext.Provider value={{ cartData, setCartData }}>
           <Page />
-          <ToastContainer />
+          <ToastContainer position="bottom-right" />
         </MovieContext.Provider>
       </ThemeContext.Provider>
     </>
